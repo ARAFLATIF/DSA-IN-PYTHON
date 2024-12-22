@@ -6,7 +6,7 @@ num1 = 11
 # Creating a new reference to the same integer object
 num2 = num1
 
-print("Before num2 value is updated:")
+print("Before num2 value  is updated:")
 print("num1 =", num1)  # Output: 11
 print("num2 =", num2)  # Output: 11
 
