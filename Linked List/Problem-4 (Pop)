@@ -1,0 +1,140 @@
+INSTRUCTIONS : 
+
+Your task is to implement the pop method for the LinkedList class.
+
+The pop method should remove the last node (tail) from the linked list and return the removed node. If the list is empty, the method should return None.
+
+After the last node is removed, the second-to-last node should become the new tail of the list.
+
+Additionally, if the list becomes empty after the pop operation, both the head and tail attributes should be set to None.
+
+
+
+Keep in mind the following requirements:
+
+
+
+The method should handle the cases where the list is empty, has only one node, or has multiple nodes.
+
+The method should update the tail attribute of the LinkedList correctly.
+
+The method should update the length attribute of the LinkedList to reflect the removal of the node.
+
+The method should either return the removed node or None if the list is empty.
+
+
+SOLUTION : 
+
+    def pop(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        pre = self.head
+        while(temp.next):
+            pre = temp
+            temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp
+
+ALTERNATIVE SOLUTION : 
+
+    def pop(self):
+        if self.length == 0:
+            return None
+        
+        if self.length == 1:
+            temp = self.head
+            self.head = None
+            self.tail = None
+            self.length -= 1
+            return temp
+        else:
+            temp = self.head
+            while temp.next.next is not None:
+                temp = temp.next
+            last_node = temp.next
+            temp.next = None
+            self.tail = temp
+            self.length -= 1
+            return last_node
+
+SOLUTION EXPLANATION : 
+
+This code defines the pop method for the LinkedList class, which removes the last element (tail) from the linked list and returns it. Here is an explanation of each part of the code:
+
+
+
+if self.length == 0: checks if the linked list is empty. If it is, the method returns None since there is nothing to pop.
+
+temp = self.head and pre = self.head initialize two variables, temp and pre, both pointing to the head of the linked list.
+
+while(temp.next): is a loop that continues as long as the next attribute of temp is not None. In other words, it iterates through the linked list until it reaches the last node.
+
+Inside the loop, pre = temp updates the pre variable to be the current node before moving to the next one, and temp = temp.next moves the temp variable to the next node in the list.
+
+After the loop, self.tail = pre updates the tail attribute of the LinkedList to the second-to-last node in the list, which is now stored in the pre variable.
+
+self.tail.next = None removes the link between the new tail and the last node by setting the next attribute of the new tail to None.
+
+self.length -= 1 decrements the length of the linked list by 1, reflecting the removal of the last node.
+
+if self.length == 0: checks if the list is now empty after the pop operation. If it is, both the head and tail attributes of the LinkedList are set to None, indicating that the list is empty.
+
+return temp returns the removed node (previously the tail of the linked list) to the caller.
+
+
+
+Big O:
+
+O( n )
+
+n is the number of nodes in the linked list
+
+When we say that the time complexity of a linked list operation is O(n), we mean that the execution time of the operation grows linearly with the size of the linked list. In other words, as the number of elements in the linked list increases, the time taken to perform the operation increases at the same rate.
+
+An algorithm with a single loop that iterates through all n items in the worst case has a time complexity of O(n)
+
+This is what lets us know this is O(n):
+
+while(temp.next):
+    pre = temp
+    temp = temp.next
+
+
+
+
+
+
+Code with inline comments:
+
+
+
+def pop(self):
+    # Check if the list is empty
+    if self.length == 0:
+        return None
+    # Initialize temp and pre to the head
+    temp = self.head
+    pre = self.head
+    # Iterate until the last node
+    while(temp.next):
+        pre = temp
+        temp = temp.next
+    # Set the new tail to the previous node
+    self.tail = pre
+    # Remove link to the removed node
+    self.tail.next = None
+    # Decrement list length by 1
+    self.length -= 1
+    # Check if the list is now empty
+    if self.length == 0:
+        # Set head and tail to None
+        self.head = None
+        self.tail = None
+    # Return the removed node
+    return temp
