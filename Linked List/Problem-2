@@ -1,0 +1,43 @@
+CHALLENGE : LL: Print List
+Implement a method print_list(self) that prints the linked list's elements, one per line.
+
+SOLUTION : 
+
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
+CODE EXPLANATION : 
+
+This code defines a method called print_list that prints the elements of a singly linked list, one element per line. The method has the following logic:
+
+
+
+Set a temporary pointer temp to the head of the list. This pointer is used to traverse the list from the beginning to the end.
+
+Start a while loop that continues as long as temp is not None, i.e., until it has reached the end of the list.
+
+Inside the loop, print the value of the current node (the node that temp points to) using the print(temp.value) statement. This will output the value of the node, followed by a newline character, ensuring that each element is printed on a separate line.
+
+Move the temporary pointer temp to the next node in the list using the statement temp = temp.next. This advances the traversal to the next node in the list.
+
+The method iterates through the entire linked list, printing the value of each node on a separate line, and stops when it reaches the end of the list (when temp is None).
+
+
+
+
+Code with inline comments:
+
+def print_list(self):
+    # Set a temporary pointer (temp) to the head of the list to start traversal
+    temp = self.head
+ 
+    # Iterate through the list until the end (temp is None)
+    while temp is not None:
+        # Print the value of the current node (temp)
+        print(temp.value)
+ 
+        # Move the temporary pointer (temp) to the next node in the list
+        temp = temp.next
