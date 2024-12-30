@@ -10,7 +10,7 @@ print("Before num2 value  is updated:")
 print("num1 =", num1)  # Output: 11
 print("num2 =", num2)  # Output: 11
 
-# Printing memory addresses of num1 and num2
+# Printing memory addresses of num1 and  num2
 print("\nnum1 points to:", id(num1))
 print("num2 points to:", id(num2))  # Same as num1's address
 
