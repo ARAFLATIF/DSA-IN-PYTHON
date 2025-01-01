@@ -1,7 +1,7 @@
 Snippet 1: Immutable Objects (Integers)
 
 # Assigning an integer value to num1
-num1 = 11
+num1 = 11 
 
 # Creating a new  reference to the same integer object
 num2 = num1
